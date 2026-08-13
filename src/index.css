@@ -1,3 +1,15 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+.custom-arrow {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+  border-radius: 6px;
+  background-color: #f4f4f5;
+  color: #18181b;
+  transition: all 0.2s ease;
+  cursor: pointer;
+}

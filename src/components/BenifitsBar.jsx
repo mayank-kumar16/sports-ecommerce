@@ -1,4 +1,3 @@
-import React from 'react';
 import { FaShieldAlt, FaLock, FaSyncAlt, FaTruck } from 'react-icons/fa';
 
 const benifits = [

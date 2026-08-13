@@ -1,9 +1,10 @@
-import ProductCard from '../components/ProductCard';
 import { useState, useEffect } from 'react';
 import { getAllProducts } from '../services/productService';
 import LoaderProductList from '../components/LoaderProductList';
 import ErrorProducts from '../components/ErrorProducts';
 import Hero from '../components/Hero';
+import BenifitsBar from '../components/BenifitsBar';
+import TrendingProducts from '../components/TrendingProducts';
 
 const Home = () => {
   const [products, setProducts] = useState([]);
@@ -42,9 +43,8 @@ const Home = () => {
   return (
     <div className="min-h-screen bg-white text-zinc-900 flex flex-col antialiased selection:bg-brand-neon selection:text-black">
       <Hero />
-      {products.map((product) => {
-        return <ProductCard key={product.id} product={product} />;
-      })}
+      <BenifitsBar />
+      <TrendingProducts />
     </div>
   );
 };
