@@ -13,3 +13,6 @@
   transition: all 0.2s ease;
   cursor: pointer;
 }
+.swiper-slide-thumb-active div {
+  border-color: #18181b;
+}

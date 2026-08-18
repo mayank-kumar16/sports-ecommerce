@@ -5,6 +5,12 @@ import ErrorProducts from '../components/ErrorProducts';
 import Hero from '../components/Hero';
 import BenifitsBar from '../components/BenifitsBar';
 import TrendingProducts from '../components/TrendingProducts';
+import ShopByCategory from '../components/ShopByCategory';
+import Bestsellers from '../components/Bestsellers';
+import PromoBanner from '../components/PromoBanner';
+import ReviewsSection from '../components/ReviewsSection';
+import InstagramGallery from '../components/InstagramGallery';
+import Newsletter from '../components/Newsletter';
 
 const Home = () => {
   const [products, setProducts] = useState([]);
@@ -44,7 +50,13 @@ const Home = () => {
     <div className="min-h-screen bg-white text-zinc-900 flex flex-col antialiased selection:bg-brand-neon selection:text-black">
       <Hero />
       <BenifitsBar />
-      <TrendingProducts />
+      <TrendingProducts products={products} />
+      <ShopByCategory />
+      <Bestsellers products={products} />
+      <PromoBanner />
+      <ReviewsSection />
+      <InstagramGallery />
+      <Newsletter />
     </div>
   );
 };

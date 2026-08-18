@@ -1,41 +1,31 @@
-import { FaChevronLeft, FaChevronRight } from 'react-icons/fa';
 import { useRef } from 'react';
+import { FaChevronLeft, FaChevronRight } from 'react-icons/fa';
+import ReviewCard from './ReviewCard';
+import { reviews } from '../utils/reviews';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import { Navigation } from 'swiper/modules';
 import 'swiper/css';
 import 'swiper/css/navigation';
-import ProductCard from './ProductCard';
 
-const TrendingProducts = ({ products }) => {
+const ReviewsSection = () => {
   const prevRef = useRef(null);
   const nextRef = useRef(null);
-
-  const trendingProducts = [...products]
-    .sort((a, b) => {
-      return b.rating - a.rating;
-    })
-    .slice(0, 8);
-
-  if (products.length === 0) {
-    return <p>no product found</p>;
-  }
-
   return (
-    <section className="py-12 bg-zinc-50 border-b border-zinc-200">
+    <section className="py-16 bg-zinc-50 border-b border-zinc-200">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex items-end justify-between mb-8">
+        <div className="flex items-end justify-between mb-10">
           <div>
             <div className="flex items-center gap-2 mb-1">
               <span className="w-6 h-1 bg-[#c6f432] rounded-full"></span>
               <span className="text-xs font-black tracking-widest text-zinc-500 uppercase">
-                POPULAR SELECTION
+                COMMUNITY FEEDBACK
               </span>
             </div>
             <h2 className="font-sans text-2xl sm:text-3xl lg:text-4xl font-extrabold text-zinc-900 tracking-tight uppercase">
-              TRENDING NOW
+              WHAT ATHLETES SAY
             </h2>
             <p className="text-sm text-zinc-600 mt-1 font-medium">
-              The gear everyone is talking about.
+              Real reviews from professional players and sports enthusiasts.
             </p>
           </div>
 
@@ -43,16 +33,16 @@ const TrendingProducts = ({ products }) => {
             <button
               ref={prevRef}
               type="button"
-              className="custom-arrow border border-zinc-200 shadow-sm hover:border-zinc-400"
-              aria-label="Previous Slide"
+              className="custom-arrow border border-zinc-200 shadow-sm"
+              aria-label="Previous Review"
             >
               <FaChevronLeft className="w-4 h-4" />
             </button>
             <button
               ref={nextRef}
               type="button"
-              className="custom-arrow border border-zinc-200 shadow-sm hover:border-zinc-400"
-              aria-label="Next Slide"
+              className="custom-arrow border border-zinc-200 shadow-sm"
+              aria-label="Next Review"
             >
               <FaChevronRight className="w-4 h-4" />
             </button>
@@ -63,7 +53,7 @@ const TrendingProducts = ({ products }) => {
           <Swiper
             modules={[Navigation]}
             navigation
-            slidesPerView={4}
+            slidesPerView={3}
             spaceBetween={20}
             onBeforeInit={(swiper) => {
               swiper.params.navigation.prevEl = prevRef.current;
@@ -73,21 +63,23 @@ const TrendingProducts = ({ products }) => {
             grabCursor={true}
             breakpoints={{
               320: {
-                slidesPerView: 2,
+                slidesPerView: 1,
               },
               768: {
-                slidesPerView: 3,
+                slidesPerView: 2,
               },
               1024: {
-                slidesPerView: 4,
+                slidesPerView: 3,
               },
             }}
           >
-            {trendingProducts.map((product) => (
-              <SwiperSlide key={product.id}>
-                <ProductCard product={product} />
-              </SwiperSlide>
-            ))}
+            {reviews.map((review) => {
+              return (
+                <SwiperSlide key={review.id}>
+                  <ReviewCard review={review} />
+                </SwiperSlide>
+              );
+            })}
           </Swiper>
         </div>
       </div>
@@ -95,4 +87,4 @@ const TrendingProducts = ({ products }) => {
   );
 };
 
-export default TrendingProducts;
+export default ReviewsSection;
