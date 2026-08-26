@@ -4,6 +4,8 @@ import ProductDetails from '../pages/ProductDetails';
 import Layout from '../Layout/Layout';
 import PageNotfound from '../components/PageNotfound';
 import Shop from '../pages/Shop';
+import CartPage from '../pages/CartPage';
+import WishlistPage from '../pages/WishlistPage';
 
 export const router = createBrowserRouter([
   {
@@ -21,6 +23,14 @@ export const router = createBrowserRouter([
       {
         path: '/product/:id',
         element: <ProductDetails />,
+      },
+      {
+        path: '/cart',
+        element: <CartPage />,
+      },
+      {
+        path: '/wishlist',
+        element: <WishlistPage />,
       },
     ],
   },

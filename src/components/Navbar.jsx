@@ -8,6 +8,7 @@ import {
 import { Link } from 'react-router-dom';
 import logoSportsWhite from '../assets/images/logo-sports-white.png';
 import { useState } from 'react';
+import { useSelector } from 'react-redux';
 
 const Navbar = () => {
   const [searchValue, setSearchValue] = useState('');
@@ -25,6 +26,14 @@ const Navbar = () => {
   const closeMobileMenu = () => {
     setIsMenuOpen(false);
   };
+
+  const cartItems = useSelector((state) => state.cart.cartItems);
+
+  const cartCount = cartItems.reduce((total, item) => {
+    return total + item.quantity;
+  }, 0);
+
+  const wishlist = useSelector((state) => state.wishlist.wishlistItems);
 
   return (
     <header className="sticky top-0 z-50 bg-[#0a0a0a] text-white border-b border-zinc-800 shadow-md">
@@ -91,29 +100,33 @@ const Navbar = () => {
               <FaSearch className="w-3.5 h-3.5 text-zinc-400 absolute left-3 top-2.5" />
             </div>
 
-            <button
-              type="button"
+            <Link
+              to="/wishlist"
               className="p-2 text-zinc-300 hover:text-[#c6f432] transition-colors relative"
               aria-label="Wishlist items"
             >
               <FaHeart className="w-5 h-5" />
 
-              <span className="absolute -top-1 -right-1 bg-[#c6f432] text-black text-[11px] font-black w-5 h-5 rounded-full flex items-center justify-center border-2 border-[#0a0a0a]">
-                0
-              </span>
-            </button>
+              {wishlist.length > 0 && (
+                <span className="absolute -top-1 -right-1 bg-[#c6f432] text-black text-[11px] font-black w-5 h-5 rounded-full flex items-center justify-center border-2 border-[#0a0a0a]">
+                  {wishlist.length}
+                </span>
+              )}
+            </Link>
 
-            <button
-              type="button"
+            <Link
+              to="/cart"
               className="p-2 text-zinc-300 hover:text-[#c6f432] transition-colors relative"
               aria-label="Shopping Cart"
             >
               <FaShoppingBag className="w-5 h-5" />
 
-              <span className="absolute -top-1 -right-1 bg-[#c6f432] text-black text-[11px] font-black w-5 h-5 rounded-full flex items-center justify-center border-2 border-[#0a0a0a]">
-                0
-              </span>
-            </button>
+              {cartCount > 0 && (
+                <span className="absolute -top-1 -right-1 bg-[#c6f432] text-black text-[11px] font-black w-5 h-5 rounded-full flex items-center justify-center border-2 border-[#0a0a0a]">
+                  {cartCount}
+                </span>
+              )}
+            </Link>
           </div>
         </div>
       </div>

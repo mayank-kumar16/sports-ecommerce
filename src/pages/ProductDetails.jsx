@@ -7,10 +7,8 @@ import ErrorProducts from '../components/ErrorProducts';
 import {
   FaStar,
   FaRegHeart,
-  FaHeart,
   FaShoppingBag,
   FaArrowLeft,
-  FaCheck,
   FaTruck,
   FaShieldAlt,
   FaSyncAlt,
@@ -20,12 +18,17 @@ import ProductGallerySwiper from '../components/ProductGallerySwiper';
 import ProductInfoAccordion from '../components/ProductInfoAccordion';
 import Newsletter from '../components/Newsletter';
 import YouMayAlsoLikeSection from '../components/YouMayAlsoLikeSection';
+import { useDispatch } from 'react-redux';
+import { addToCart } from '../redux/cartSlice';
+import { addToWishlist } from '../redux/wishlistSlice';
 
 const ProductDetailsPage = () => {
   const { id } = useParams();
   const [currentProduct, setcurrentProduct] = useState(null);
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState(null);
+  const [quantity, setQuantity] = useState(1);
+  const dispatch = useDispatch();
 
   useEffect(() => {
     const getCurrentProd = async () => {
@@ -153,18 +156,28 @@ const ProductDetailsPage = () => {
                   type="button"
                   className="w-11 h-11 flex items-center justify-center text-zinc-800 hover:bg-zinc-100 transition-colors font-extrabold text-lg focus:outline-none"
                   aria-label="Decrease quantity"
+                  onClick={() => {
+                    if (quantity > 1) {
+                      setQuantity(quantity - 1);
+                    }
+                  }}
                 >
                   -
                 </button>
 
                 <span className="w-14 text-center text-base font-black text-zinc-900 font-mono">
-                  1
+                  {quantity}
                 </span>
 
                 <button
                   type="button"
                   className="w-11 h-11 flex items-center justify-center text-zinc-800 hover:bg-zinc-100 transition-colors font-extrabold text-lg focus:outline-none"
                   aria-label="Increase quantity"
+                  onClick={() => {
+                    if (quantity < currentProduct.stock) {
+                      setQuantity(quantity + 1);
+                    }
+                  }}
                 >
                   +
                 </button>
@@ -175,6 +188,11 @@ const ProductDetailsPage = () => {
               <button
                 type="button"
                 className="w-full bg-[#0a0a0a] hover:bg-[#c6f432] text-white hover:text-black font-extrabold text-sm sm:text-base py-4 rounded-xl uppercase tracking-wider transition-all duration-200 shadow-md flex items-center justify-center gap-3 group"
+                onClick={() => {
+                  dispatch(
+                    addToCart({ product: currentProduct, quantity: quantity })
+                  );
+                }}
               >
                 <FaShoppingBag className="w-4 h-4 group-hover:scale-110 transition-transform" />
                 ADD TO CART
@@ -183,6 +201,9 @@ const ProductDetailsPage = () => {
               <button
                 type="button"
                 className="w-full border border-zinc-300 bg-white text-zinc-800 hover:border-zinc-900 hover:bg-zinc-50 font-bold text-sm py-3.5 rounded-xl uppercase tracking-wider transition-all duration-200 flex items-center justify-center gap-2 shadow-sm"
+                onClick={() => {
+                  dispatch(addToWishlist(currentProduct));
+                }}
               >
                 <FaRegHeart className="w-4 h-4 text-zinc-600" />
                 <span>ADD TO WISHLIST</span>

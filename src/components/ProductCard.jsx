@@ -1,6 +1,8 @@
-import React from 'react';
 import { FaStar, FaRegHeart, FaShoppingBag } from 'react-icons/fa';
 import { Link } from 'react-router-dom';
+import { useDispatch } from 'react-redux';
+import { addToCart } from '../redux/cartSlice';
+import { addToWishlist } from '../redux/wishlistSlice';
 
 const ProductCard = ({ product }) => {
   const {
@@ -18,6 +20,8 @@ const ProductCard = ({ product }) => {
   const reviewsCount = reviews.length;
   const sportCategory = tags[1];
 
+  const dispatch = useDispatch();
+
   return (
     <div className="group relative bg-white border border-zinc-200 rounded-lg overflow-hidden flex flex-col justify-between transition-all duration-300 hover:shadow-xl hover:border-zinc-300">
       <div className="relative aspect-square w-full bg-zinc-100 overflow-hidden flex items-center justify-center p-4">
@@ -31,6 +35,9 @@ const ProductCard = ({ product }) => {
           type="button"
           aria-label="Add to wishlist"
           className="absolute top-3 right-3 z-10 p-2 rounded-full bg-white/90 text-zinc-600 hover:text-red-500 hover:bg-white transition-all shadow-sm focus:outline-none"
+          onClick={() => {
+            dispatch(addToWishlist(product));
+          }}
         >
           <FaRegHeart className="w-4 h-4" />
         </button>
@@ -105,6 +112,9 @@ const ProductCard = ({ product }) => {
             type="button"
             aria-label={`Add ${title} to cart`}
             className="p-2.5 bg-zinc-900 hover:bg-[#c6f432] hover:text-black text-white rounded-md transition-all duration-200 focus:outline-none"
+            onClick={() => {
+              dispatch(addToCart({ product, quantity: 1 }));
+            }}
           >
             <FaShoppingBag className="w-3.5 h-3.5" />
           </button>
