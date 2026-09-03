@@ -6,6 +6,9 @@ import PageNotfound from '../components/PageNotfound';
 import Shop from '../pages/Shop';
 import CartPage from '../pages/CartPage';
 import WishlistPage from '../pages/WishlistPage';
+import Checkout from '../pages/Checkout';
+import OrderConfirmationPage from '../pages/OrderConfirmationPage';
+import AboutPage from '../pages/AboutPage';
 
 export const router = createBrowserRouter([
   {
@@ -15,6 +18,10 @@ export const router = createBrowserRouter([
       {
         index: true,
         element: <Home />,
+      },
+      {
+        path: '/about',
+        element: <AboutPage />,
       },
       {
         path: '/shop',
@@ -31,6 +38,14 @@ export const router = createBrowserRouter([
       {
         path: '/wishlist',
         element: <WishlistPage />,
+      },
+      {
+        path: '/checkout',
+        element: <Checkout />,
+      },
+      {
+        path: '/order-confirmation',
+        element: <OrderConfirmationPage />,
       },
     ],
   },

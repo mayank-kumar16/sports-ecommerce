@@ -5,14 +5,26 @@ import {
   FaBars,
   FaTimes,
 } from 'react-icons/fa';
-import { Link } from 'react-router-dom';
+import { Link, NavLink } from 'react-router-dom';
 import logoSportsWhite from '../assets/images/logo-sports-white.png';
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { useSelector } from 'react-redux';
+import SearchDropdown from './SearchDropdown';
 
 const Navbar = () => {
   const [searchValue, setSearchValue] = useState('');
+  const [debouncedSearchValue, setDebouncedSearchValue] = useState('');
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+
+  useEffect(() => {
+    const timer = setTimeout(() => {
+      setDebouncedSearchValue(searchValue);
+    }, 700);
+
+    return () => {
+      clearTimeout(timer);
+    };
+  }, [searchValue]);
 
   const handleSearchInput = (event) => {
     const inputValue = event.target.value;
@@ -71,19 +83,43 @@ const Navbar = () => {
 
           {/* Desktop Navigation */}
           <nav className="hidden lg:flex items-center gap-8">
-            <Link
+            <NavLink
               to="/"
-              className="text-sm font-bold text-[#c6f432] tracking-wider hover:opacity-90 transition-opacity uppercase"
+              end
+              className={({ isActive }) =>
+                `text-sm font-bold tracking-wider uppercase ${
+                  isActive
+                    ? 'text-[#c6f432]'
+                    : 'text-zinc-200 hover:text-[#c6f432]'
+                }`
+              }
             >
               HOME
-            </Link>
-
-            <Link
+            </NavLink>
+            <NavLink
               to="/shop"
-              className="text-sm font-bold text-zinc-200 tracking-wider hover:text-[#c6f432] transition-colors uppercase"
+              className={({ isActive }) =>
+                `text-sm font-bold tracking-wider uppercase ${
+                  isActive
+                    ? 'text-[#c6f432]'
+                    : 'text-zinc-200 hover:text-[#c6f432]'
+                }`
+              }
             >
               SHOP
-            </Link>
+            </NavLink>
+            <NavLink
+              to="/about"
+              className={({ isActive }) =>
+                `text-sm font-bold tracking-wider uppercase ${
+                  isActive
+                    ? 'text-[#c6f432]'
+                    : 'text-zinc-200 hover:text-[#c6f432]'
+                }`
+              }
+            >
+              ABOUT
+            </NavLink>{' '}
           </nav>
 
           <div className="flex items-center gap-4 sm:gap-6">
@@ -98,6 +134,12 @@ const Navbar = () => {
               />
 
               <FaSearch className="w-3.5 h-3.5 text-zinc-400 absolute left-3 top-2.5" />
+              {debouncedSearchValue && (
+                <SearchDropdown
+                  searchValue={debouncedSearchValue}
+                  setSearchValue={setSearchValue}
+                />
+              )}
             </div>
 
             <Link
@@ -135,7 +177,7 @@ const Navbar = () => {
       {isMenuOpen && (
         <div className="lg:hidden absolute top-20 left-0 w-full bg-[#0a0a0a] border-t border-b border-zinc-800 shadow-lg">
           {/* Mobile Search */}
-          <div className="p-4 border-b border-zinc-800">
+          <div className="p-4 border-b border-zinc-800 relative">
             <div className="relative">
               <input
                 type="text"
@@ -147,24 +189,57 @@ const Navbar = () => {
 
               <FaSearch className="w-4 h-4 text-zinc-400 absolute left-4 top-3.5" />
             </div>
+
+            {debouncedSearchValue && (
+              <SearchDropdown
+                searchValue={debouncedSearchValue}
+                setSearchValue={setSearchValue}
+              />
+            )}
           </div>
 
           <nav className="flex flex-col">
-            <Link
+            <NavLink
               to="/"
+              end
+              className={({ isActive }) =>
+                `text-sm font-bold tracking-wider uppercase ${
+                  isActive
+                    ? 'text-[#c6f432]'
+                    : 'text-zinc-200 hover:text-[#c6f432]'
+                }`
+              }
               onClick={closeMobileMenu}
-              className="px-6 py-5 text-sm font-bold tracking-wider text-[#c6f432] uppercase border-b border-zinc-800 hover:bg-zinc-900 transition-colors"
             >
               HOME
-            </Link>
+            </NavLink>
 
-            <Link
+            <NavLink
               to="/shop"
+              className={({ isActive }) =>
+                `text-sm font-bold tracking-wider uppercase ${
+                  isActive
+                    ? 'text-[#c6f432]'
+                    : 'text-zinc-200 hover:text-[#c6f432]'
+                }`
+              }
               onClick={closeMobileMenu}
-              className="px-6 py-5 text-sm font-bold tracking-wider text-zinc-200 uppercase border-b border-zinc-800 hover:text-[#c6f432] hover:bg-zinc-900 transition-colors"
             >
               SHOP
-            </Link>
+            </NavLink>
+            <NavLink
+              to="/about"
+              className={({ isActive }) =>
+                `text-sm font-bold tracking-wider uppercase ${
+                  isActive
+                    ? 'text-[#c6f432]'
+                    : 'text-zinc-200 hover:text-[#c6f432]'
+                }`
+              }
+              onClick={closeMobileMenu}
+            >
+              ABOUT
+            </NavLink>
           </nav>
         </div>
       )}

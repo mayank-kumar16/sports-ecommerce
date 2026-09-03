@@ -100,6 +100,12 @@ const Footer = () => {
               >
                 Shop
               </Link>
+              <Link
+                to="/about"
+                className="w-fit text-zinc-400 transition-colors hover:text-[#c6f432]"
+              >
+                About
+              </Link>
             </div>
           </div>
 

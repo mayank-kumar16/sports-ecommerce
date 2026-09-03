@@ -207,9 +207,7 @@ const CartPage = () => {
                   <div className="flex justify-between items-center">
                     <span className="text-zinc-500 uppercase">SHIPPING</span>
 
-                    <span className="text-emerald-600 font-extrabold bg-emerald-50 px-2 py-0.5 rounded text-[11px] border border-emerald-200">
-                      FREE
-                    </span>
+                    <span className="font-bold">$8.00</span>
                   </div>
 
                   <div className="h-px bg-zinc-200 w-full my-2"></div>
@@ -225,13 +223,13 @@ const CartPage = () => {
                   </div>
                 </div>
 
-                <button
-                  type="button"
+                <Link
+                  to="/checkout"
                   className="w-full bg-[#0a0a0a] hover:bg-[#c6f432] text-white hover:text-black font-extrabold text-sm py-4 rounded-xl uppercase tracking-wider transition-all duration-200 shadow-md flex items-center justify-center gap-2 group"
                 >
                   PROCEED TO CHECKOUT
                   <FaArrowRight className="w-3.5 h-3.5 group-hover:translate-x-1 transition-transform" />
-                </button>
+                </Link>
               </div>
             </div>
           </div>

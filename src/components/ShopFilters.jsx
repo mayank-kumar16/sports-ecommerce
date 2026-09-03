@@ -54,6 +54,7 @@ const ShopFilters = ({
               return (
                 <button
                   type="button"
+                  key={category.id}
                   className={`w-full flex items-center justify-between px-3 py-2 rounded-md text-xs font-medium transition-all group ${
                     isSelected
                       ? 'bg-zinc-900 text-white font-bold shadow-sm'

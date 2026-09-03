@@ -17,6 +17,7 @@ const ShopPage = () => {
   const [error, setError] = useState(null);
   const [searchParams, setSearchParams] = useSearchParams();
   const selectedCategory = searchParams.get('category') || 'all';
+  const searchQuery = searchParams.get('search') || '';
   const [maxPrice, setMaxPrice] = useState(40);
   const [sortBy, setSortBy] = useState('featured');
 
@@ -59,7 +60,11 @@ const ShopPage = () => {
 
     const priceMatch = product.price <= maxPrice;
 
-    return matchedProduct && priceMatch;
+    const searchMatch = product.title
+      .toLowerCase()
+      .includes(searchQuery.trim().toLowerCase());
+
+    return matchedProduct && priceMatch && searchMatch;
   });
 
   const sortedProducts = [...filteredProducts].sort((a, b) => {
