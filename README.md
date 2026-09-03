@@ -1,70 +1,142 @@
-# Getting Started with Create React App
+# SportX - Sports E-Commerce Store
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+SportX is a modern sports e-commerce web application built with React. It allows users to browse sports products, search and filter products, manage their cart and wishlist, and complete a frontend checkout flow.
 
-## Available Scripts
+The project focuses on building a realistic e-commerce experience while demonstrating modern React development practices, state management with Redux Toolkit, API integration, routing, responsive UI, and form handling.
 
-In the project directory, you can run:
+---
 
-### `npm start`
+## 🚀 Live Demo
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+[View Live Demo](#)
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+---
 
-### `npm test`
+## ✨ Features
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+### 🏠 Home Page
 
-### `npm run build`
+- Hero section with promotional content
+- Benefits section
+- Trending products
+- Shop by category
+- Responsive navigation
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+### 🛍️ Product Browsing
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+- Browse sports products
+- Product cards with images, prices, ratings, and discounts
+- Product details page
+- Category-based product browsing
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+### 🔎 Search
 
-### `npm run eject`
+- Search products by name
+- Debounced search input
+- Search suggestions dropdown
+- View all search results
+- Case-insensitive product search
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+### 🎯 Product Filtering & Sorting
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+- Filter products by category
+- Filter products by maximum price
+- Sort by:
+  - Featured
+  - Price: Low to High
+  - Price: High to Low
+  - Rating
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+### 🛒 Shopping Cart
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+- Add products to cart
+- Increase product quantity
+- Decrease product quantity
+- Remove products
+- Automatically calculate subtotal
+- Calculate shipping
+- Free shipping for qualifying orders
+- Display cart item count in navbar
 
-## Learn More
+### ❤️ Wishlist
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+- Add products to wishlist
+- Remove products from wishlist
+- Wishlist item count in navbar
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+### 💳 Checkout
 
-### Code Splitting
+- Customer information form
+- Shipping address form
+- Payment method selection
+- Credit/debit card fields
+- Form validation
+- Coupon code support
+- `SAVE10` coupon for 10% discount
+- Order summary
+- Shipping and discount calculation
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+### ✅ Order Confirmation
 
-### Analyzing the Bundle Size
+- Generate unique order ID
+- Display order summary
+- Display purchased products
+- Display customer information
+- Display shipping information
+- Display payment method
+- Clear cart after successful order
+- Continue shopping option
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+### 📱 Responsive Design
 
-### Making a Progressive Web App
+- Desktop navigation
+- Mobile navigation
+- Responsive product grids
+- Responsive cart and checkout layouts
+- Mobile-friendly forms
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
+---
 
-### Advanced Configuration
+## 🧰 Tech Stack
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
+### Frontend
 
-### Deployment
+- React
+- React Router
+- Redux Toolkit
+- Tailwind CSS
+- React Icons
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
+### API
 
-### `npm run build` fails to minify
+- DummyJSON Products API
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+### Development
+
+- Create React App
+- JavaScript (ES6+)
+- Git & GitHub
+
+---
+
+## 🔄 Application Flow
+
+```text
+Home
+ │
+ ├── Browse Categories
+ │       ↓
+ │     Shop
+ │       ↓
+ │   Product Details
+ │       ↓
+ │    Add to Cart
+ │       ↓
+ │      Cart
+ │       ↓
+ │    Checkout
+ │       ↓
+ │  Place Order
+ │       ↓
+ │ Order Confirmation
+```
