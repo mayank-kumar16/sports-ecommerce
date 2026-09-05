@@ -1,11 +1,5 @@
 import { Link } from 'react-router-dom';
-import {
-  FaTrashAlt,
-  FaArrowLeft,
-  FaArrowRight,
-  FaHeart,
-  FaCheckCircle,
-} from 'react-icons/fa';
+import { FaTrashAlt, FaArrowLeft, FaArrowRight, FaHeart } from 'react-icons/fa';
 import { useDispatch, useSelector } from 'react-redux';
 import { addToCart } from '../redux/cartSlice';
 import { clearWishlist, removeFromWishlist } from '../redux/wishlistSlice';
