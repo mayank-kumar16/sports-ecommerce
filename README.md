@@ -8,7 +8,7 @@ The project focuses on building a realistic e-commerce experience while demonstr
 
 ## 🚀 Live Demo
 
-[View Live Demo](#)
+[https://sports-ecommerce-beige.vercel.app/](#)
 
 ---
 
