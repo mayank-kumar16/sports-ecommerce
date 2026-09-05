@@ -8,7 +8,7 @@ const CategoryCard = ({ category }) => {
   return (
     <Link
       to={`/shop?category=${tag}`}
-      className="group relative h-64 rounded-lg overflow-hidden flex flex-col justify-end p-5 bg-zinc-900 border border-zinc-800 transition-all duration-300 hover:border-[#c6f432] hover:shadow-[0_0_20px_rgba(198,244,50,0.3)]"
+      className="group relative h-64 rounded-lg overflow-hidden flex flex-col justify-end p-3 p-m-5 bg-zinc-900 border border-zinc-800 transition-all duration-300 hover:border-[#c6f432] hover:shadow-[0_0_20px_rgba(198,244,50,0.3)]"
     >
       <img
         src={image}
@@ -21,10 +21,10 @@ const CategoryCard = ({ category }) => {
 
       <div className="relative z-10 flex items-end justify-between">
         <div>
-          <span className="text-[10px] font-extrabold tracking-widest text-[#c6f432] uppercase">
+          <span className="text-[10px] font-extrabold tracking-widest text-[#c6f432] uppercase leading-[12px] ">
             {subtitle}
           </span>
-          <h3 className="font-sans font-black text-xl sm:text-2xl text-white tracking-wider uppercase group-hover:text-[#c6f432] transition-colors">
+          <h3 className="font-sans font-black text-[15px] sm:text-2xl text-white tracking-wider uppercase group-hover:text-[#c6f432] transition-colors">
             {name}
           </h3>
         </div>

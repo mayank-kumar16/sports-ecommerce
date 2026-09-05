@@ -38,7 +38,7 @@ const YouMayAlsoLikeSection = ({ currentProductId }) => {
         <div className="flex items-center gap-4 flex-1">
           <div className="h-px bg-zinc-200 flex-1"></div>
 
-          <h2 className="text-center font-mono text-base sm:text-lg font-black tracking-widest text-zinc-900 uppercase border border-zinc-300 bg-white px-6 py-2 rounded-lg shadow-sm">
+          <h2 className="text-center font-mono text-[15px] sm:text-lg font-black tracking-widest text-zinc-900 uppercase border border-zinc-300 bg-white px-3 px-m-6 py-2 rounded-lg shadow-sm">
             YOU MAY ALSO LIKE
           </h2>
 
@@ -73,7 +73,7 @@ const YouMayAlsoLikeSection = ({ currentProductId }) => {
           swiper.params.navigation.nextEl = nextRef.current;
         }}
         breakpoints={{
-          640: {
+          340: {
             slidesPerView: 2,
           },
           768: {

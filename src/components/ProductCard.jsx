@@ -62,7 +62,7 @@ const ProductCard = ({ product }) => {
       <div className="p-4 flex-1 flex flex-col justify-between bg-white">
         <div>
           <div className="flex items-center justify-between text-xs text-zinc-500 font-bold uppercase tracking-wider mb-1">
-            <span className="text-[10px] text-zinc-400 bg-zinc-100 px-1.5 py-0.5 rounded">
+            <span className="text-[9px] text-m-[10px] text-zinc-400 bg-zinc-100 px-1 py-0.5 rounded">
               {sportCategory}
             </span>
           </div>
@@ -78,7 +78,7 @@ const ProductCard = ({ product }) => {
                   return (
                     <FaStar
                       key={star}
-                      className={`w-3.5 h-3.5 ${
+                      className={`w-2.5 h-2.5 w-m-3.5 h-m-3.5 ${
                         star <= Math.round(rating)
                           ? 'text-amber-400'
                           : 'text-zinc-300'
@@ -97,7 +97,7 @@ const ProductCard = ({ product }) => {
         <div className="pt-3 border-t border-zinc-100 flex items-center justify-between mt-2">
           <div className="flex flex-col">
             <div className="flex items-baseline gap-1.5">
-              <span className="font-extrabold text-base text-zinc-900">
+              <span className="font-extrabold text-[14px] text-m-[16px] text-zinc-900">
                 ${price}
               </span>
               {originalPrice && (

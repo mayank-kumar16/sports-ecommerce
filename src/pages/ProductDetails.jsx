@@ -78,8 +78,8 @@ const ProductDetailsPage = () => {
           </div>
 
           <div className="lg:col-span-6 font-mono space-y-6">
-            <div className="flex items-center justify-between">
-              <span className="text-xs font-black text-zinc-900 bg-zinc-100 border border-zinc-200 px-3 py-1 rounded-md tracking-widest uppercase">
+            <div className="flex flex-col justify-start items-start md:flex-row md:items-center md:justify-between">
+              <span className="text-xs font-black text-zinc-900 bg-zinc-100 border border-zinc-200 px-3 py-1 mb-2 mb-m-0 rounded-md tracking-widest uppercase">
                 {currentProduct.category}
               </span>
 
@@ -112,12 +112,12 @@ const ProductDetailsPage = () => {
               </span>
             </div>
 
-            <div className="flex items-baseline gap-4 py-4 px-5 bg-zinc-50 border border-zinc-200 rounded-2xl">
-              <span className="text-3xl sm:text-4xl font-black text-zinc-900">
+            <div className="flex items-baseline gap-4 py-3 px-3 py-m-4 px-m-5 bg-zinc-50 border border-zinc-200 rounded-2xl">
+              <span className="text-[18px] text-m-3xl sm:text-4xl font-black text-zinc-900">
                 ${currentProduct.price}
               </span>
 
-              <span className="text-lg text-zinc-400 line-through font-semibold">
+              <span className="text-[16px] text-m-lg text-zinc-400 line-through font-semibold">
                 $
                 {(
                   currentProduct.price /
@@ -125,7 +125,7 @@ const ProductDetailsPage = () => {
                 ).toFixed(2)}
               </span>
 
-              <span className="bg-red-600 text-white font-extrabold text-xs px-3 py-1 rounded-md tracking-wider uppercase ml-auto">
+              <span className="bg-red-600 text-white font-extrabold text-xs px-2 px-m-3 py-1 rounded-md tracking-wider uppercase ml-auto">
                 SAVE {currentProduct.discountPercentage}%
               </span>
             </div>

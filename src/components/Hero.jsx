@@ -13,7 +13,7 @@ const Hero = () => {
         />
       </div>
 
-      <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20 lg:py-32 flex flex-col justify-center min-h-[580px] lg:min-h-[640px]">
+      <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-10 lg:py-32 flex flex-col justify-center min-h-[500px] lg:min-h-[640px]">
         <div className="max-w-2xl space-y-6">
           <div className="inline-flex items-center gap-2 bg-zinc-900/90 border border-[#c6f432]/40 px-3.5 py-1.5 rounded-full">
             <span className="w-2 h-2 rounded-full bg-[#c6f432] animate-ping"></span>

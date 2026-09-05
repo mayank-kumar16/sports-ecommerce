@@ -175,7 +175,7 @@ const Navbar = () => {
 
       {/* Mobile Menu */}
       {isMenuOpen && (
-        <div className="lg:hidden absolute top-20 left-0 w-full bg-[#0a0a0a] border-t border-b border-zinc-800 shadow-lg">
+        <div className="lg:hidden min-h-screen absolute top-20 left-0 w-full bg-[#0a0a0a] border-t border-b border-zinc-800 shadow-lg">
           {/* Mobile Search */}
           <div className="p-4 border-b border-zinc-800 relative">
             <div className="relative">
@@ -198,12 +198,12 @@ const Navbar = () => {
             )}
           </div>
 
-          <nav className="flex flex-col">
+          <nav className="flex flex-col py-5 px-4 pb-10">
             <NavLink
               to="/"
               end
               className={({ isActive }) =>
-                `text-sm font-bold tracking-wider uppercase ${
+                `text-sm font-bold tracking-wider uppercase mb-2 ${
                   isActive
                     ? 'text-[#c6f432]'
                     : 'text-zinc-200 hover:text-[#c6f432]'
@@ -217,7 +217,7 @@ const Navbar = () => {
             <NavLink
               to="/shop"
               className={({ isActive }) =>
-                `text-sm font-bold tracking-wider uppercase ${
+                `text-sm font-bold tracking-wider uppercase mb-2 ${
                   isActive
                     ? 'text-[#c6f432]'
                     : 'text-zinc-200 hover:text-[#c6f432]'
@@ -230,7 +230,7 @@ const Navbar = () => {
             <NavLink
               to="/about"
               className={({ isActive }) =>
-                `text-sm font-bold tracking-wider uppercase ${
+                `text-sm font-bold tracking-wider uppercase mb-2 ${
                   isActive
                     ? 'text-[#c6f432]'
                     : 'text-zinc-200 hover:text-[#c6f432]'

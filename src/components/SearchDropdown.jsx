@@ -22,7 +22,7 @@ const SearchDropdown = ({ searchValue, setSearchValue }) => {
   });
 
   return (
-    <div className="absolute top-full left-0 mt-3 w-[500px] max-w-[calc(100vw-2rem)] bg-[#0a0a0a] border border-zinc-800 rounded-2xl shadow-2xl overflow-hidden z-50">
+    <div className="absolute top-full left-[10px] md:left-0 mt-3 w-[500px] max-w-[calc(100vw-2rem)] bg-[#0a0a0a] border border-zinc-800 rounded-2xl shadow-2xl overflow-hidden z-50 mx-auto">
       {/* Header */}
       <div className="flex items-center justify-between px-5 py-4 border-b border-zinc-800">
         <h3 className="text-xs font-extrabold text-zinc-300 uppercase tracking-widest">
